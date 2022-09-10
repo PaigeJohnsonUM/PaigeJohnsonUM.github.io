@@ -1,17 +1,17 @@
 {
     "$schema": "https://vega.github.io/schema/vega/v5.json",
     "description": "A basic scatter plot example depicting automobile statistics.",
-    "width": 200,
+    "width": 800,
     "height": 200,
     "padding": 5,
     "data": [
         {
             "name": "source",
-            "url": "data/cars.json",
+            "url": "Cal.json",
             "transform": [
                 {
                     "type": "filter",
-                    "expr": "datum['Horsepower'] != null && datum['Miles_per_Gallon'] != null && datum['Acceleration'] != null"
+                    "expr": "datum['Year'] != null && datum['Value'] != null"
                 }
             ]
         }
@@ -22,10 +22,10 @@
             "type": "linear",
             "round": true,
             "nice": true,
-            "zero": true,
+            "zero": false,
             "domain": {
                 "data": "source",
-                "field": "Horsepower"
+                "field": "Year"
             },
             "range": "width"
         },
@@ -37,34 +37,19 @@
             "zero": true,
             "domain": {
                 "data": "source",
-                "field": "Miles_per_Gallon"
+                "field": "Value"
             },
             "range": "height"
-        },
-        {
-            "name": "size",
-            "type": "linear",
-            "round": true,
-            "nice": false,
-            "zero": true,
-            "domain": {
-                "data": "source",
-                "field": "Acceleration"
-            },
-            "range": [
-                4,
-                361
-            ]
         }
     ],
     "axes": [
         {
             "scale": "x",
             "grid": true,
-            "domain": false,
+            "domain": true,
             "orient": "bottom",
-            "tickCount": 5,
-            "title": "Horsepower"
+            "tickCount": 20,
+            "title": "Year"
         },
         {
             "scale": "y",
@@ -72,18 +57,7 @@
             "domain": false,
             "orient": "left",
             "titlePadding": 5,
-            "title": "Miles_per_Gallon"
-        }
-    ],
-    "legends": [
-        {
-            "size": "size",
-            "title": "Acceleration",
-            "format": "s",
-            "symbolStrokeColor": "#4682b4",
-            "symbolStrokeWidth": 2,
-            "symbolOpacity": 0.5,
-            "symbolType": "circle"
+            "title": "Value"
         }
     ],
     "marks": [
@@ -97,15 +71,11 @@
                 "update": {
                     "x": {
                         "scale": "x",
-                        "field": "Horsepower"
+                        "field": "Year"
                     },
                     "y": {
                         "scale": "y",
-                        "field": "Miles_per_Gallon"
-                    },
-                    "size": {
-                        "scale": "size",
-                        "field": "Acceleration"
+                        "field": "Value"
                     },
                     "shape": {
                         "value": "circle"
