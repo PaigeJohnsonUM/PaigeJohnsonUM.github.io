@@ -1,0 +1,39 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "A scatterplot showing horsepower and miles per gallons for various cars.",
+    "title": {
+        "text": "California Unemployment Rate Over Time",
+        "color": "blue"
+    },
+    "data": {
+        "url": "Cal.json"
+    },
+    "width": 600,
+    "mark": {
+        "type": "point",
+        "shape": "circle",
+        "color": "#3e1cff",
+        "fill": "#3e1cff",
+        "strokeWidth": 1
+    },
+    "encoding": {
+        "x": {
+            "field": "Year",
+            "type": "temporal",
+            "axis": {
+                "title": "Year",
+                "tickExtra": true,
+                "tickCount": 25,
+                "domain": true
+            }
+        },
+        "y": {
+            "field": "Value",
+            "type": "quantitative",
+            "axis": {
+                "title": "Unemployment Rate (%)",
+                "tickCount": 16
+            }
+        }
+    }
+}
