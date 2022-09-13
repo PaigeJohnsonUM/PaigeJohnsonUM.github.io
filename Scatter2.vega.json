@@ -1,141 +1,66 @@
 {
-    "$schema": "https://vega.github.io/schema/vega/v5.json",
-    "description": "A basic scatter plot example depicting automobile statistics.",
-    "width": 800,
-    "height": 200,
-    "padding": 5,
-    "data": [
-        {
-            "name": "source",
-            "url": "Montana.json",
-            "transform": [
-                {
-                    "type": "filter",
-                    "expr": "datum['Year'] != null && datum['Value'] != null"
-                }
-            ]
-        }
-    ],
-    "scales": [
-        {
-            "name": "x",
-            "type": "linear",
-            "round": true,
-            "nice": true,
-            "zero": false,
-            "domain": {
-                "data": "source",
-                "field": "Year"
-            },
-            "range": "width"
-        },
-        {
-            "name": "y",
-            "type": "linear",
-            "round": true,
-            "nice": true,
-            "zero": true,
-            "domain": {
-                "data": "source",
-                "field": "Value"
-            },
-            "range": "height"
-        }
-    ],
-    "axes": [
-        {
-            "scale": "x",
-            "grid": true,
-            "domain": true,
-            "orient": "bottom",
-            "tickCount": 24,
-            "title": "Year",
-            "format": "%Y",
-            "formatType": "time",
-            "values": [
-                1999,
-                2000,
-                2001,
-                2002,
-                2003,
-                2004,
-                2005,
-                2006,
-                2007,
-                2008,
-                2009,
-                2010,
-                2011,
-                2012,
-                2013,
-                2014,
-                2015,
-                2016,
-                2017,
-                2018,
-                2019,
-                2020,
-                2021,
-                2022
-            ]
-        },
-        {
-            "scale": "y",
-            "grid": true,
-            "domain": true,
-            "orient": "left",
-            "titlePadding": 5,
-            "title": "Unemployment Percentage",
-            "tickCount": 15,
-            "ticks": true
-        }
-    ],
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "A scatterplot showing horsepower and miles per gallons for various cars.",
     "title": {
-        "text": "Montana Unemployment Rates Over Time",
-        "encode": {
-            "title": {
-                "enter": {
-                    "fill": {
-                        "value": "blue"
-                    }
-                }
-            }
-        }
+        "text": "Montana Unemployment Rate Over Time",
+        "color": "red"
     },
-    "marks": [
-        {
-            "name": "marks",
-            "type": "symbol",
-            "from": {
-                "data": "source"
-            },
-            "encode": {
-                "update": {
-                    "x": {
-                        "scale": "x",
-                        "field": "Year"
-                    },
-                    "y": {
-                        "scale": "y",
-                        "field": "Value"
-                    },
-                    "shape": {
-                        "value": "circle"
-                    },
-                    "strokeWidth": {
-                        "value": 1
-                    },
-                    "opacity": {
-                        "value": 0.5
-                    },
-                    "stroke": {
-                        "value": "#4682b4"
-                    },
-                    "fill": {
-                        "value": "#4682b4"
-                    }
-                }
+    "data": {
+        "url": "Montana.json"
+    },
+    "width": 600,
+    "mark": {
+        "type": "point",
+        "shape": "circle",
+        "color": "#b01717",
+        "fill": "#b01717",
+        "strokeWidth": 1
+    },
+    "encoding": {
+        "x": {
+            "field": "Year",
+            "type": "temporal",
+            "axis": {
+                "title": "Year",
+                "tickExtra": true,
+                "tickCount": 25,
+                "domain": true,
+                "values": [
+                    1999,
+                    2000,
+                    2001,
+                    2002,
+                    2003,
+                    2004,
+                    2005,
+                    2006,
+                    2007,
+                    2008,
+                    2009,
+                    2010,
+                    2011,
+                    2012,
+                    2013,
+                    2014,
+                    2015,
+                    2016,
+                    2017,
+                    2018,
+                    2019,
+                    2020,
+                    2021,
+                    2022,
+                    2023
+                ]
+            }
+        },
+        "y": {
+            "field": "Value",
+            "type": "quantitative",
+            "axis": {
+                "title": "Unemployment Rate (%)",
+                "tickCount": 16
             }
         }
-    ]
+    }
 }
