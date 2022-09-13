@@ -1,6 +1,5 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "description": "A scatterplot showing horsepower and miles per gallons for various cars.",
     "title": {
         "text": "Montana Unemployment Rate Over Time",
         "color": "red"
@@ -8,7 +7,7 @@
     "data": {
         "url": "Montana.json"
     },
-    "width": 600,
+    "width": 500,
     "mark": {
         "type": "point",
         "shape": "circle",
@@ -22,36 +21,14 @@
             "type": "temporal",
             "axis": {
                 "title": "Year",
+                "titlePadding": 5,
                 "tickExtra": true,
-                "tickCount": 25,
+                "tickCount": 23,
+                "ticks": true,
                 "domain": true,
-                "values": [
-                    1999,
-                    2000,
-                    2001,
-                    2002,
-                    2003,
-                    2004,
-                    2005,
-                    2006,
-                    2007,
-                    2008,
-                    2009,
-                    2010,
-                    2011,
-                    2012,
-                    2013,
-                    2014,
-                    2015,
-                    2016,
-                    2017,
-                    2018,
-                    2019,
-                    2020,
-                    2021,
-                    2022,
-                    2023
-                ]
+                "tickColor": "black",
+                "labelAlign": "center",
+                "grid": true
             }
         },
         "y": {
@@ -59,7 +36,7 @@
             "type": "quantitative",
             "axis": {
                 "title": "Unemployment Rate (%)",
-                "tickCount": 16
+                "tickCount": 13
             }
         }
     }
