@@ -48,7 +48,7 @@
             "grid": true,
             "domain": true,
             "orient": "bottom",
-            "tickCount": 23,
+            "tickCount": 24,
             "title": "Year",
             "format": "%Y",
             "formatType": "time",
@@ -90,25 +90,11 @@
     ],
     "title": {
         "text": "California Unemployment Rates Over Time",
-        "subtitle": "Subtitle Text",
         "encode": {
             "title": {
                 "enter": {
                     "fill": {
                         "value": "blue"
-                    }
-                }
-            },
-            "subtitle": {
-                "interactive": true,
-                "update": {
-                    "fontStyle": {
-                        "value": "italic"
-                    }
-                },
-                "hover": {
-                    "fontStyle": {
-                        "value": "normal"
                     }
                 }
             }
