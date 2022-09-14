@@ -22,8 +22,13 @@
             "axis": {
                 "title": "Year",
                 "tickExtra": true,
-                "tickCount": 25,
-                "domain": true
+                "tickCount": 24,
+                "ticks": true,
+                "domain": true,
+                "tickColor": "black",
+                "labelAlign": "center",
+                "grid": true,
+                "labelLimit": 500
             }
         },
         "y": {
